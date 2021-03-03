@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TechApp</string>
+    <string name="text_tech_support">Welcome to our project. You can call us on the phone below, write by mail or write a message directly from the application</string>
+</resources>

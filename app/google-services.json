@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1057763922816",
+    "project_id": "taskapp-be322",
+    "storage_bucket": "taskapp-be322.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057763922816:android:57df63b60c489b4cb76765",
+        "android_client_info": {
+          "package_name": "com.student.techapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057763922816-1aam9d53gnrgn3jts0155qhgs1vskd35.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU5cl8pyBl65GJ7x45hML4D85lpurIqzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057763922816-1aam9d53gnrgn3jts0155qhgs1vskd35.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
