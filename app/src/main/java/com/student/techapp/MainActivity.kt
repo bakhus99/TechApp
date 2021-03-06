@@ -1,35 +1,65 @@
 package com.student.techapp
 
 import android.os.Bundle
-import android.text.TextUtils
-import android.widget.Toast
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.student.techapp.databinding.ActivityMainBinding
+import com.student.techapp.ui.MainFragment
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding
+    private lateinit var auth: FirebaseAuth
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val currentUser = auth.currentUser
+        if (currentUser != null){
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment,MainFragment())
+                .commit()
+        }
+
         val navHostFragment = supportFragmentManager
-                .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
-        setupActionBarWithNavController(navController)
+
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.registerFragment,
+                R.id.loginFragment,
+                )
+        )
+
+
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        binding.bottomDrawer.setupWithNavController(navController)
+        navController.addOnDestinationChangedListener { _, nd: NavDestination, _ ->
+            if (nd.id == R.id.registerFragment || nd.id == R.id.loginFragment || nd.id == R.id.startFragment) {
+                binding.bottomDrawer.visibility = View.GONE
+            } else {
+                binding.bottomDrawer.visibility = View.VISIBLE
+            }
+        }
+
+
     }
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
+
 
 }

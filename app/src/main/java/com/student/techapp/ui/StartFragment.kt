@@ -20,7 +20,8 @@ class StartFragment : Fragment(R.layout.fragment_start) {
             findNavController().navigate(action)
         }
         binding.btnSkip.setOnClickListener {
-
+            val action = StartFragmentDirections.actionStartFragmentToMainFragment()
+            findNavController().navigate(action)
         }
         binding.tvRegister.setOnClickListener {
             val action = StartFragmentDirections.actionStartFragmentToRegisterFragment()

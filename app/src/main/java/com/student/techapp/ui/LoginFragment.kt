@@ -27,11 +27,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding.btnLogin.setOnClickListener {
             loginUser()
         }
-//        val currentUser = auth.currentUser
-//        if (currentUser != null){
-//            val action = LoginFragmentDirections.actionLoginFragmentToProfileFragment()
-//            findNavController().navigate(action)
-//        }
+        val currentUser = auth.currentUser
+        if (currentUser != null){
+            val action = LoginFragmentDirections.actionLoginFragmentToProfileFragment()
+            findNavController().navigate(action)
+        }
     }
 
     private fun loginUser() {

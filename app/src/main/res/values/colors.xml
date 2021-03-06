@@ -10,4 +10,11 @@
 
     <color name="background_color">#575454</color>
     <color name="border_color">#000000</color>
+
+    //Colors for Bottom NavBar
+    <color name="bottom_nav_selected">#28a9ff</color>
+    <color name="bottom_nav_inactive">#934C46</color>
+    //Color for BottomNav Text
+    <color name="bottom_nav_selected_text">#0099FF</color>
+    <color name="bottom_nav_inactive_text">#C8635B</color>
 </resources>
