@@ -34,7 +34,6 @@
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toBottomOf="@id/guideline2" />
 
     <TextView
@@ -43,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/ubuntu_light"
-        android:text="Don't have an account"
+        android:text="@string/don_t_have_an_account"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +64,7 @@
 
     <Button
         android:id="@+id/btn_support"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginStart="8dp"
@@ -75,6 +74,5 @@
         app:layout_constraintStart_toEndOf="@id/btn_skip"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_register" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

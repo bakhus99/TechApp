@@ -47,7 +47,7 @@
             android:layout_height="match_parent"
             android:ems="19"
             android:background="@drawable/edittext"
-            android:hint="Enter login"
+            android:hint="@string/enter_login"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
-        android:hint="Enter your password..."
+        android:hint="@string/enter_your_password"
         app:layout_constraintBottom_toTopOf="@id/btnLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

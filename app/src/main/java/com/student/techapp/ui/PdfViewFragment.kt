@@ -16,18 +16,13 @@ class PdfViewFragment : Fragment(R.layout.fragment_pdf_view) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentPdfViewBinding.bind(view)
         checkPdfAction()
-
     }
 
     private fun checkPdfAction() {
-
         showPdfFromAssets(com.student.techapp.utils.FileUtils.getPdfNameFromAssets())
-
     }
 
-
     private fun showPdfFromAssets(pdfName: String) {
-
         binding.pdfView.fromAsset(pdfName)
             .password(null) // if password protected, then write password
             .defaultPage(0) // set the default page to open

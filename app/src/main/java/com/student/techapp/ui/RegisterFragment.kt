@@ -19,9 +19,6 @@ import com.student.techapp.R
 import com.student.techapp.databinding.FragmentRegisterBinding
 import java.util.*
 
-
-private const val TAG = "RegisterFragment"
-
 class RegisterFragment : Fragment(R.layout.fragment_register) {
 
     private lateinit var binding: FragmentRegisterBinding
@@ -60,7 +57,6 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                 binding.tvSelectedDate.text =
                     ("" + dayOfMonth + "." + (monthOfYear + 1) + "." + year)
             }, year, month, day)
-
             dpd.show()
 
             binding.btnRegister.setOnClickListener {
@@ -79,8 +75,6 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         val birthdayDate = binding.tvSelectedDate.text.toString()
         val city = binding.city.text.toString()
         val about = binding.aboutYourself.text.toString()
-
-
 
         if (
             binding.checkbox.isChecked
@@ -119,7 +113,5 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         } else {
             Toast.makeText(context, "Please read term of use", Toast.LENGTH_SHORT).show()
         }
-
-
     }
 }

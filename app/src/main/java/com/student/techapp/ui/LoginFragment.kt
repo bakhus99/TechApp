@@ -5,12 +5,10 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.student.techapp.R
 import com.student.techapp.databinding.FragmentLoginBinding
-import org.w3c.dom.Text
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
@@ -22,7 +20,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentLoginBinding.bind(view)
         auth = FirebaseAuth.getInstance()
-
 
         binding.btnLogin.setOnClickListener {
             loginUser()

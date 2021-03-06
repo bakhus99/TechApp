@@ -1,13 +1,12 @@
 <resources>
     <string name="app_name">TechApp</string>
     <string name="text_tech_support">Welcome to our project. You can call us on the phone below, write by mail or write a message directly from the application</string>
-    <string name="download">Dowload</string>
-    <string name="yes">Yes</string>
-    <string name="cancel">Cancel</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="download" translatable="false">Download</string>
+    <string name="yes" translatable="false">Yes</string>
+    <string name="cancel" translatable="false">Cancel</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="i_read_terms_of_use">I read terms of use</string>
-    <string name="register">Register</string>
+    <string name="register">Sign up</string>
     <string name="enter_your_name">Enter your name</string>
     <string name="enter_your_surname">Enter your Surname</string>
     <string name="enter_your_middle_name">Enter your Middle name</string>
@@ -21,4 +20,14 @@
     <string name="tech_header">tech_header</string>
     <string name="skip">Skip</string>
     <string name="login">Login</string>
+    <string name="name">Name:</string>
+    <string name="surname">Surname:</string>
+    <string name="middle_name">Middle name:</string>
+    <string name="birthday">Birthday:</string>
+    <string name="city">City:</string>
+    <string name="about_myself">About Myself</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="enter_login">Enter login</string>
+    <string name="enter_your_password">Enter your password...</string>
 </resources>

@@ -9,15 +9,12 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.firebase.auth.FirebaseAuth
 import com.student.techapp.databinding.ActivityMainBinding
-import com.student.techapp.ui.MainFragment
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding
-    private lateinit var auth: FirebaseAuth
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,14 +22,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val currentUser = auth.currentUser
-        if (currentUser != null){
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment,MainFragment())
-                .commit()
-        }
-
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
@@ -40,11 +29,9 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.registerFragment,
-                R.id.loginFragment,
-                )
+                R.id.loginFragment
+            )
         )
-
-
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.bottomDrawer.setupWithNavController(navController)
         navController.addOnDestinationChangedListener { _, nd: NavDestination, _ ->
@@ -54,12 +41,9 @@ class MainActivity : AppCompatActivity() {
                 binding.bottomDrawer.visibility = View.VISIBLE
             }
         }
-
-
     }
+
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
-
-
 }

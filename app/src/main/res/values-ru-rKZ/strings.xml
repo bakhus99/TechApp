@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TechApp</string>
+    <string name="text_tech_support">Добро пожаловать в наш проект. Вы можете позвонить нам по указанному ниже телефону, написать по почте или написать сообщение прямо из приложения.</string>
+    <string name="i_read_terms_of_use">Я прочитал условия использования</string>
+    <string name="register">Зарегистрироваться</string>
+    <string name="enter_your_name">Введите ваше имя</string>
+    <string name="enter_your_surname">Введите вашу фамилию</string>
+    <string name="enter_your_middle_name">Введите ваше отчество</string>
+    <string name="please_choose_your_birthday_date">Пожалуйста, выберите дату вашего дня рождения</string>
+    <string name="pick_a_date">Выберите дату</string>
+    <string name="enter_city_where_your_live">Введите город, в котором вы живете</string>
+    <string name="write_something_about_yourself">Напиши что-нибудь о себе</string>
+    <string name="enter_your_message">Введите сообщение</string>
+    <string name="send_message">Отправить сообщение</string>
+    <string name="technical_support">Техническая поддержка</string>
+    <string name="tech_header">Техническая поддержка</string>
+    <string name="skip">Пропустить</string>
+    <string name="login">Авторизоваться</string>
+    <string name="name">Имя:</string>
+    <string name="surname">Фамилия:</string>
+    <string name="middle_name">Отчество:</string>
+    <string name="birthday">День рождения:</string>
+    <string name="city">Город:</string>
+    <string name="about_myself">О себе</string>
+    <string name="upload_image">Загрузить изображение</string>
+    <string name="don_t_have_an_account">Нет учетной записи?</string>
+    <string name="enter_login">Введите логин</string>
+    <string name="enter_your_password">Введите свой пароль...</string>
+</resources>

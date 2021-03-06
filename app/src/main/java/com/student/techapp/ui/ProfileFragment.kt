@@ -31,7 +31,6 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
     private var database: FirebaseDatabase? = null
     private val REQUEST_IMAGE_CODE = 123
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentProfileBinding.bind(view)
@@ -64,7 +63,6 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
                 binding.tvCity.text = snapshot.child("city").value.toString()
                 binding.tvAboutMe.text = snapshot.child("about").value.toString()
                 binding.tvBirthday.text = snapshot.child("bday").value.toString()
-
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -117,24 +115,14 @@ try {
 
     val imageRef = FirebaseStorage.getInstance().reference.child("images/$randomKey")
         .putFile(filePath!!).await()
-    withContext(Dispatchers.Main){
+    withContext(Dispatchers.Main) {
         Toast.makeText(context, "File uploaded", Toast.LENGTH_SHORT).show()
 
     }
-}catch (e:Exception){
-    withContext(Dispatchers.Main){
+} catch (e: Exception) {
+    withContext(Dispatchers.Main) {
         Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
     }
 }
-
-//        val randomKey = UUID.randomUUID().toString()
-//
-//        val imageRef = FirebaseStorage.getInstance().reference.child("images/$randomKey")
-//        imageRef.putFile(filePath!!).addOnSuccessListener {
-//
-//            Toast.makeText(context, "File uploaded", Toast.LENGTH_SHORT).show()
-//        }.addOnFailureListener {
-//            Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
-//        }
-}
+    }
 }
