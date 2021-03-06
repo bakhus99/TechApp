@@ -16,7 +16,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Register"
+            android:text="@string/register"
+            android:textColor="@color/black"
             android:textSize="32sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +28,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:hint="Enter your name"
+            android:backgroundTint="@color/black"
+            android:hint="@string/enter_your_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/register" />
@@ -37,7 +39,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:hint="Enter your Surname"
+            android:backgroundTint="@color/black"
+            android:hint="@string/enter_your_surname"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etName" />
@@ -47,20 +50,22 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:hint="Enter your Middle name"
+            android:backgroundTint="@color/black"
+            android:hint="@string/enter_your_middle_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etSurname" />
 
         <TextView
             android:id="@+id/tvPickupDate"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:fontFamily="@font/ubuntu_light"
-            android:text="Please choose your birthday"
+            android:text="@string/please_choose_your_birthday_date"
             android:textSize="18sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/datePicker"
             app:layout_constraintBottom_toBottomOf="@+id/datePicker"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/datePicker" />
@@ -70,9 +75,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="PICK A date"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/pick_a_date"
+            app:layout_constraintEnd_toEndOf="@id/content_end"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toEndOf="@+id/tvPickupDate"
             app:layout_constraintTop_toBottomOf="@id/etMiddleName" />
 
         <TextView
@@ -88,13 +94,13 @@
             app:layout_constraintTop_toBottomOf="@id/datePicker"
             tools:text="14/07/1999" />
 
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/city"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:hint="Enter city where your live"
+            android:backgroundTint="@color/black"
+            android:hint="@string/enter_city_where_your_live"
             app:layout_constraintBottom_toTopOf="@id/guideline3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -112,9 +118,11 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="16dp"
-            android:background="@android:color/transparent"
+            android:background="@drawable/boreders"
             android:gravity="top"
-            android:hint="Write something about yourself"
+            android:hint="@string/write_something_about_yourself"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             app:layout_constraintBottom_toTopOf="@id/guideline4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -131,12 +139,11 @@
             android:id="@+id/checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:gravity="center"
             android:minWidth="0dp"
             android:minHeight="0dp"
             app:layout_constraintBottom_toTopOf="@+id/btnRegister"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="@id/content_start" />
 
         <TextView
             android:id="@+id/tvLicense"
@@ -144,33 +151,33 @@
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
             android:gravity="center"
-            android:text="I read terms of use"
+            android:text="@string/i_read_terms_of_use"
             app:layout_constraintBottom_toBottomOf="@id/checkbox"
             app:layout_constraintStart_toEndOf="@id/checkbox"
             app:layout_constraintTop_toTopOf="@id/checkbox" />
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etEmail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:hint="Enter your email"
+            android:backgroundTint="@color/black"
             android:inputType="textEmailAddress"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:drawableStart="@drawable/ic_email"
+            app:layout_constraintEnd_toEndOf="@id/content_end"
+            app:layout_constraintStart_toStartOf="@id/content_start"
             app:layout_constraintTop_toBottomOf="@id/guideline4" />
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPassword"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:hint="Enter your password"
+            android:backgroundTint="@color/black"
+            android:drawableStart="@drawable/ic_lock"
             android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/content_end"
+            app:layout_constraintStart_toStartOf="@id/content_start"
             app:layout_constraintTop_toBottomOf="@id/etEmail" />
 
         <Button
@@ -183,6 +190,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/content_start"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/content_end"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

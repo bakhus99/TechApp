@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFE073
+	"
     tools:context=".ui.ProfileFragment">
 
     <ImageView
@@ -165,8 +167,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guideline6"
         app:layout_constraintBottom_toTopOf="@id/guideline7"
-
-        />
+        android:background="@drawable/boreders"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"

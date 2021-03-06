@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.AboutFragment">
+    tools:context=".ui.AboutFragment"
+    android:background="@android:color/holo_blue_dark">
 
     <ImageView
-        android:id="@+id/userImage"
+        android:id="@+id/techImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:scaleType="fitCenter"
+        android:scaleType="matrix"
         app:layout_constraintBottom_toTopOf="@id/guideline8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_logo_screen" />
+        android:src="@drawable/tech_support_header"
+        android:contentDescription="@string/tech_header" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"
@@ -29,9 +31,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Technical Support"
+        android:text="@string/technical_support"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
         app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/ubuntu_light"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guideline8" />
 
@@ -42,6 +46,8 @@
         android:layout_margin="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         android:text="@string/text_tech_support"
         app:layout_constraintBottom_toTopOf="@id/guideline9"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,6 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="+7 701 32 99 400"
+        android:backgroundTint="@android:color/holo_red_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guideline9"
@@ -65,6 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="support@app.kz"
+        android:backgroundTint="@android:color/holo_green_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnPhone" />
@@ -80,21 +88,24 @@
         android:id="@+id/etMessage"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:hint="Enter your message"
+        android:hint="@string/enter_your_message"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnEmail"
         app:layout_constraintBottom_toTopOf="@id/btn_send"
-        android:background="@android:color/transparent"
-        android:layout_margin="8dp"
+        android:background="@drawable/boreders"
         android:gravity="top"
-        />
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:layout_margin="8dp"
+        android:textColor="@color/black" />
 
     <Button
         android:id="@+id/btn_send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Send message"
+        android:text="@string/send_message"
+        android:backgroundTint="@android:color/holo_orange_light"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
