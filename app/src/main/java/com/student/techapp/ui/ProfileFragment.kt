@@ -53,7 +53,6 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
     private fun loadProfile() {
         val user = auth.currentUser
         val userReference = databaseReference?.child(user?.uid!!)
-        binding.tvCity.text = user?.email
 
         userReference?.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
