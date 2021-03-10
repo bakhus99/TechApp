@@ -1,26 +1,17 @@
 package com.student.techapp.ui
 
-import android.app.Activity
-import android.content.Intent
-import android.graphics.ImageDecoder
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.google.firebase.storage.FirebaseStorage
 import com.student.techapp.R
 import com.student.techapp.databinding.FragmentProfileBinding
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
-import kotlinx.coroutines.withContext
-import java.util.*
 
 class ProfileFragment:Fragment(R.layout.fragment_profile) {
 
@@ -41,11 +32,10 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
 
         loadProfile()
 
-        binding.userImage.setOnClickListener {
-            updateUserImage()
-        }
         binding.btnUpload.setOnClickListener {
-            uploadFile()
+            FirebaseAuth.getInstance().signOut()
+            val action = ProfileFragmentDirections.actionProfileFragmentToStartFragment()
+            findNavController().navigate(action)
         }
     }
 
@@ -56,12 +46,21 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
 
         userReference?.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                binding.tvName.text = snapshot.child("name").value.toString()
-                binding.tvSurname.text = snapshot.child("lastname").value.toString()
-                binding.tvMiddleName.text = snapshot.child("middlename").value.toString()
+                binding.tvName.text = snapshot.child("username").value.toString()
+                binding.tvSurname.text = snapshot.child("usersurname").value.toString()
+                binding.tvMiddleName.text = snapshot.child("usermiddlename").value.toString()
                 binding.tvCity.text = snapshot.child("city").value.toString()
                 binding.tvAboutMe.text = snapshot.child("about").value.toString()
-                binding.tvBirthday.text = snapshot.child("bday").value.toString()
+                binding.tvBirthday.text = snapshot.child("birthday").value.toString()
+                val uri = snapshot.child("profileImage").value.toString()
+                Glide.with(requireContext())
+                    .load(uri)
+                    .transform(
+                        RoundedCorners(
+                            requireContext().resources.getDimension(R.dimen.small).toInt()
+                        )
+                    )
+                    .into(binding.circleImage)
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -70,58 +69,4 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
         })
     }
 
-    private fun updateUserImage() {
-        val intent = Intent()
-        intent.type = "image/*"
-        intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent, "Choose Image"), REQUEST_IMAGE_CODE)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == REQUEST_IMAGE_CODE && resultCode == Activity.RESULT_OK && data != null) {
-
-            filePath = data.data!!
-            try {
-                filePath.let {
-                    if (Build.VERSION.SDK_INT < 28) {
-                        val bitmap = MediaStore.Images.Media.getBitmap(
-                            activity?.contentResolver,
-                            filePath
-                        )
-                        binding.userImage.setImageBitmap(bitmap)
-                    } else {
-                        val source = activity?.let { it1 ->
-                            ImageDecoder.createSource(
-                                it1.contentResolver,
-                                filePath!!
-                            )
-                        }
-                        val bitmap = source?.let { it1 -> ImageDecoder.decodeBitmap(it1) }
-                        binding.userImage.setImageBitmap(bitmap)
-                    }
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
-    }
-
-    private fun uploadFile() = CoroutineScope(Dispatchers.IO).launch{
-try {
-    val randomKey = UUID.randomUUID().toString()
-
-    val imageRef = FirebaseStorage.getInstance().reference.child("images/$randomKey")
-        .putFile(filePath!!).await()
-    withContext(Dispatchers.Main) {
-        Toast.makeText(context, "File uploaded", Toast.LENGTH_SHORT).show()
-
-    }
-} catch (e: Exception) {
-    withContext(Dispatchers.Main) {
-        Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
-    }
-}
-    }
 }

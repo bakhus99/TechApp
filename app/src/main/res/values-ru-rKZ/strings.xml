@@ -27,4 +27,5 @@
     <string name="don_t_have_an_account">Нет учетной записи?</string>
     <string name="enter_login">Введите логин</string>
     <string name="enter_your_password">Введите свой пароль...</string>
+    <string name="sign_out">"Выйти "</string>
 </resources>

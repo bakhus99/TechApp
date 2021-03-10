@@ -1,11 +1,16 @@
 package com.student.techapp.ui
 
+import android.app.Activity
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.SpannableString
 import android.text.TextUtils
 import android.text.style.UnderlineSpan
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -27,6 +32,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     private var database: FirebaseDatabase? = null
     private var storageRef: FirebaseStorage? = null
     private var ref: StorageReference? = null
+    var selectedPhotoUri: Uri? = null
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,6 +47,9 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         storageRef = FirebaseStorage.getInstance()
         databaseReference = database?.reference!!.child("profile")
 
+        binding.selectPhoto.setOnClickListener {
+            selectPhoto()
+        }
 
         binding.tvLicense.setOnClickListener {
 
@@ -62,6 +71,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             binding.btnRegister.setOnClickListener {
                 register()
             }
+
         }
     }
 
@@ -70,11 +80,6 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         val email = binding.etEmail.text.toString().trim()
         val password = binding.etPassword.text.toString().trim()
         val name = binding.etName.text.toString()
-        val surname = binding.etSurname.text.toString()
-        val middlename = binding.etMiddleName.text.toString()
-        val birthdayDate = binding.tvSelectedDate.text.toString()
-        val city = binding.city.text.toString()
-        val about = binding.aboutYourself.text.toString()
 
         if (
             binding.checkbox.isChecked
@@ -95,14 +100,15 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
                         val currentUser = auth.currentUser
-                        val currentUSerDb = databaseReference?.child((currentUser?.uid!!))
-                        currentUSerDb?.child("name")?.setValue(name)
-                        currentUSerDb?.child("lastname")?.setValue(surname)
-                        currentUSerDb?.child("middlename")?.setValue(middlename)
-                        currentUSerDb?.child("city")?.setValue(city)
-                        currentUSerDb?.child("about")?.setValue(about)
-                        currentUSerDb?.child("bday")?.setValue(birthdayDate)
+                        //                       val currentUSerDb = databaseReference?.child((currentUser?.uid!!))
+//                        currentUSerDb?.child("name")?.setValue(name)
+//                        currentUSerDb?.child("lastname")?.setValue(surname)
+//                        currentUSerDb?.child("middlename")?.setValue(middlename)
+//                        currentUSerDb?.child("city")?.setValue(city)
+//                        currentUSerDb?.child("about")?.setValue(about)
+//                        currentUSerDb?.child("bday")?.setValue(birthdayDate)
                         Toast.makeText(context, "User reg success", Toast.LENGTH_SHORT).show()
+                        uploadImageToFirebase()
                         val action =
                             RegisterFragmentDirections.actionRegisterFragmentToLoginFragment()
                         findNavController().navigate(action)
@@ -113,5 +119,73 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         } else {
             Toast.makeText(context, "Please read term of use", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun uploadImageToFirebase() {
+        if (selectedPhotoUri == null) return
+        val filename = UUID.randomUUID().toString()
+        val ref = FirebaseStorage.getInstance().getReference("/images/$filename")
+        ref.putFile(selectedPhotoUri!!).addOnSuccessListener { path ->
+            Toast.makeText(
+                context,
+                "Sucsses photo update ${path.metadata?.path}",
+                Toast.LENGTH_SHORT
+            )
+                .show()
+            ref.downloadUrl.addOnSuccessListener {
+                //acsess to file locatioan
+                saveUserToFirebase(it.toString())
+            }.addOnFailureListener {
+
+            }
+        }
+    }
+
+    private fun saveUserToFirebase(profileImgUrl: String) {
+        val name = binding.etName.text.toString()
+        val surname = binding.etSurname.text.toString()
+        val middlename = binding.etMiddleName.text.toString()
+        val birthdayDate = binding.tvSelectedDate.text.toString()
+        val city = binding.city.text.toString()
+        val about = binding.aboutYourself.text.toString()
+        val uid = FirebaseAuth.getInstance().uid ?: ""
+        val ref = FirebaseDatabase.getInstance().getReference("/profile/$uid")
+        val user = User(uid, profileImgUrl, name, surname, middlename, birthdayDate, city, about)
+        ref.setValue(user)
+            .addOnSuccessListener {
+                Log.d("REGISTERACTIVITY", "finally we saved user to firebase")
+            }
+    }
+
+    class User(
+        val uid: String,
+        val profileImage: String,
+        val username: String,
+        val usersurname: String,
+        val usermiddlename: String,
+        val birthday: String,
+        val city: String,
+        val about: String
+    )
+
+    private fun selectPhoto() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, 0)
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 0 && resultCode == Activity.RESULT_OK && data != null) {
+            selectedPhotoUri = data.data
+
+            val bitmap =
+                MediaStore.Images.Media.getBitmap(activity?.contentResolver, selectedPhotoUri)
+            binding.circleImage.setImageBitmap(bitmap)
+            binding.selectPhoto.alpha = 0f
+        }
+
     }
 }
