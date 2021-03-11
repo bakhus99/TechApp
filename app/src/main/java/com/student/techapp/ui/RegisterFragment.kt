@@ -21,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.student.techapp.R
+import com.student.techapp.data.Users
 import com.student.techapp.databinding.FragmentRegisterBinding
 import java.util.*
 
@@ -31,7 +32,6 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     private var databaseReference: DatabaseReference? = null
     private var database: FirebaseDatabase? = null
     private var storageRef: FirebaseStorage? = null
-    private var ref: StorageReference? = null
     var selectedPhotoUri: Uri? = null
 
 
@@ -150,23 +150,12 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         val about = binding.aboutYourself.text.toString()
         val uid = FirebaseAuth.getInstance().uid ?: ""
         val ref = FirebaseDatabase.getInstance().getReference("/profile/$uid")
-        val user = User(uid, profileImgUrl, name, surname, middlename, birthdayDate, city, about)
+        val user = Users(uid, profileImgUrl, name, surname, middlename, birthdayDate, city, about)
         ref.setValue(user)
             .addOnSuccessListener {
                 Log.d("REGISTERACTIVITY", "finally we saved user to firebase")
             }
     }
-
-    class User(
-        val uid: String,
-        val profileImage: String,
-        val username: String,
-        val usersurname: String,
-        val usermiddlename: String,
-        val birthday: String,
-        val city: String,
-        val about: String
-    )
 
     private fun selectPhoto() {
         val intent = Intent(Intent.ACTION_PICK)

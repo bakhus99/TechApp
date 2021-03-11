@@ -70,5 +70,14 @@
         android:id="@+id/mainFragment"
         android:name="com.student.techapp.ui.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_newMessagesFragment"
+            app:destination="@id/newMessagesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newMessagesFragment"
+        android:name="com.student.techapp.ui.NewMessagesFragment"
+        android:label="fragment_new_messages"
+        tools:layout="@layout/fragment_new_messages" />
 </navigation>
