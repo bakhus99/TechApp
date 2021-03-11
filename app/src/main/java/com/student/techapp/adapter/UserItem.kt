@@ -3,7 +3,7 @@ package com.student.techapp.adapter
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.student.techapp.R
-import com.student.techapp.data.Users
+import com.student.techapp.models.Users
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
 

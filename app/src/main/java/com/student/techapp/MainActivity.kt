@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setTheme(R.style.Theme_TechApp)
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.bottomDrawer.setupWithNavController(navController)
         navController.addOnDestinationChangedListener { _, nd: NavDestination, _ ->
-            if (nd.id == R.id.registerFragment || nd.id == R.id.loginFragment || nd.id == R.id.startFragment) {
+            if (nd.id == R.id.registerFragment || nd.id == R.id.loginFragment || nd.id == R.id.startFragment || nd.id == R.id.chatFragment) {
                 binding.bottomDrawer.visibility = View.GONE
             } else {
                 binding.bottomDrawer.visibility = View.VISIBLE

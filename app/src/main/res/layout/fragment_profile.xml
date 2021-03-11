@@ -55,7 +55,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintBaseline_toBaselineOf="@id/labelName"
         app:layout_constraintStart_toEndOf="@id/labelName"
-        tools:text="Baha" />
+        tools:text="Asema" />
 
     <TextView
         android:id="@+id/labelSurname"
@@ -77,7 +77,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintStart_toEndOf="@id/labelSurname"
         app:layout_constraintBaseline_toBaselineOf="@id/labelSurname"
-        tools:text="Tutenov" />
+        tools:text="Student" />
 
     <TextView
         android:id="@+id/labelMiddleName"
@@ -99,8 +99,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintBaseline_toBaselineOf="@id/labelMiddleName"
         app:layout_constraintStart_toEndOf="@id/labelMiddleName"
-
-        tools:text="Yerembekovich" />
+        tools:text="Yermanagnoivch" />
 
     <TextView
         android:id="@+id/labelBirthdayDate"

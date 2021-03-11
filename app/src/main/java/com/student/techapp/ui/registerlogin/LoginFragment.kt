@@ -1,4 +1,4 @@
-package com.student.techapp.ui
+package com.student.techapp.ui.registerlogin
 
 import android.os.Bundle
 import android.text.TextUtils

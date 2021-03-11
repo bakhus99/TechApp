@@ -1,4 +1,4 @@
-package com.student.techapp.ui
+package com.student.techapp.ui.registerlogin
 
 import android.app.Activity
 import android.app.DatePickerDialog
@@ -19,10 +19,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import com.student.techapp.R
-import com.student.techapp.data.Users
 import com.student.techapp.databinding.FragmentRegisterBinding
+import com.student.techapp.models.Users
 import java.util.*
 
 class RegisterFragment : Fragment(R.layout.fragment_register) {
@@ -33,6 +32,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     private var database: FirebaseDatabase? = null
     private var storageRef: FirebaseStorage? = null
     var selectedPhotoUri: Uri? = null
+
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -75,7 +75,6 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         }
     }
 
-
     private fun register() {
         val email = binding.etEmail.text.toString().trim()
         val password = binding.etPassword.text.toString().trim()
@@ -99,14 +98,14 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
-                        val currentUser = auth.currentUser
-                        //                       val currentUSerDb = databaseReference?.child((currentUser?.uid!!))
-//                        currentUSerDb?.child("name")?.setValue(name)
-//                        currentUSerDb?.child("lastname")?.setValue(surname)
-//                        currentUSerDb?.child("middlename")?.setValue(middlename)
-//                        currentUSerDb?.child("city")?.setValue(city)
-//                        currentUSerDb?.child("about")?.setValue(about)
-//                        currentUSerDb?.child("bday")?.setValue(birthdayDate)
+//                        val currentUser = auth.currentUser
+//                        //                       val currentUSerDb = databaseReference?.child((currentUser?.uid!!))
+////                        currentUSerDb?.child("name")?.setValue(name)
+////                        currentUSerDb?.child("lastname")?.setValue(surname)
+////                        currentUSerDb?.child("middlename")?.setValue(middlename)
+////                        currentUSerDb?.child("city")?.setValue(city)
+////                        currentUSerDb?.child("about")?.setValue(about)
+////                        currentUSerDb?.child("bday")?.setValue(birthdayDate)
                         Toast.makeText(context, "User reg success", Toast.LENGTH_SHORT).show()
                         uploadImageToFirebase()
                         val action =

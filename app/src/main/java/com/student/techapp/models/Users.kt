@@ -1,6 +1,10 @@
-package com.student.techapp.data
+package com.student.techapp.models
 
-class Users(
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class Users(
     val uid: String,
     val profileImage: String,
     val username: String,
@@ -9,6 +13,6 @@ class Users(
     val birthday: String,
     val city: String,
     val about: String
-){
-    constructor():this("","","","","","","","")
+) : Parcelable {
+    constructor() : this("", "", "", "", "", "", "", "")
 }

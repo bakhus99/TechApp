@@ -30,7 +30,7 @@
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.student.techapp.ui.LoginFragment"
+        android:name="com.student.techapp.ui.registerlogin.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.student.techapp.ui.RegisterFragment"
+        android:name="com.student.techapp.ui.registerlogin.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -79,5 +79,19 @@
         android:id="@+id/newMessagesFragment"
         android:name="com.student.techapp.ui.NewMessagesFragment"
         android:label="fragment_new_messages"
-        tools:layout="@layout/fragment_new_messages" />
+        tools:layout="@layout/fragment_new_messages" >
+        <action
+            android:id="@+id/action_newMessagesFragment_to_chatFragment"
+            app:destination="@id/chatFragment"
+            app:popUpTo="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.student.techapp.ui.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" >
+        <argument
+            android:name="uid"
+            app:argType="string" />
+    </fragment>
 </navigation>
