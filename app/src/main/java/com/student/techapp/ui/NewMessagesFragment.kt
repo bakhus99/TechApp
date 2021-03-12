@@ -21,24 +21,12 @@ class NewMessagesFragment : Fragment(R.layout.fragment_new_messages) {
 
     private lateinit var binding: FragmentNewMessagesBinding
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentNewMessagesBinding.bind(view)
-        // val adapter = GroupAdapter<GroupieViewHolder>()
-//
-//        adapter.add(UserItem())
-//        adapter.add(UserItem())
-//        adapter.add(UserItem())
-//
-//        binding.rvNewMessages.adapter = adapter
 
         fetchUsers()
 
-    }
-
-    companion object {
-        val USER_KEY = "USER_KEY"
     }
 
     private fun fetchUsers() {
@@ -55,20 +43,17 @@ class NewMessagesFragment : Fragment(R.layout.fragment_new_messages) {
                 }
                 adapter.setOnItemClickListener { item, view ->
                     val userItem = item as UserItem
-                    val uid = userItem.users.uid
+                    val uid = userItem.users
                     val action =
                         NewMessagesFragmentDirections.actionNewMessagesFragmentToChatFragment(
                            uid
                         )
-                    //val user = arguments?.putParcelable(USER_KEY,userItem.users)
-                    //action.arguments
                     findNavController().navigate(action)
                 }
                 binding.rvNewMessages.adapter = adapter
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
             }
 
         })

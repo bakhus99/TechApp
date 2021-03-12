@@ -15,6 +15,7 @@ import com.student.techapp.adapter.ChatFromItem
 import com.student.techapp.adapter.ChatToItem
 import com.student.techapp.databinding.FragmentChatBinding
 import com.student.techapp.models.ChatMessage
+import com.student.techapp.models.Users
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 
@@ -25,14 +26,14 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
     private val args: ChatFragmentArgs by navArgs()
 
     val adapter = GroupAdapter<GroupieViewHolder>()
+    var toUser: Users? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentChatBinding.bind(view)
 
         binding.rvChatMsg.adapter = adapter
-
-        // setupDummeData()
+        toUser = args.user
         listenForMessages()
 
         binding.btnSendMsg.setOnClickListener {
@@ -42,7 +43,9 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
     }
 
     private fun listenForMessages() {
-        val reference = FirebaseDatabase.getInstance().getReference("/messages")
+        val fromId = FirebaseAuth.getInstance().uid
+        val toId = toUser?.uid
+        val reference = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId")
         reference.addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
                 val chatMessage = snapshot.getValue(ChatMessage::class.java)
@@ -50,27 +53,25 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
                     Log.d("New msg", chatMessage.text)
 
                     if (chatMessage.fromId == FirebaseAuth.getInstance().uid) {
-                        adapter.add(ChatFromItem(chatMessage.text))
+                        val currentUser = MainFragment.currentUser ?: return
+                        adapter.add(ChatFromItem(chatMessage.text, currentUser))
                     } else {
-                        adapter.add(ChatToItem(chatMessage.text))
+                        //val toUser = args.user
+                        adapter.add(ChatToItem(chatMessage.text, toUser!!))
                     }
                 }
             }
 
             override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
-                TODO("Not yet implemented")
             }
 
             override fun onChildRemoved(snapshot: DataSnapshot) {
-                TODO("Not yet implemented")
             }
 
             override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
-                TODO("Not yet implemented")
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
             }
 
         })
@@ -79,31 +80,23 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
 
     private fun performSendMsg() {
         val msg = binding.etEnterMessage.text.toString()
-        val ref = FirebaseDatabase.getInstance().getReference("/messages").push()
         val fromId = FirebaseAuth.getInstance().uid
-        val toId = args.uid
+        // mb tut error budet
+        val toId = toUser!!.uid
         if (fromId == null) return
-
+        //val ref = FirebaseDatabase.getInstance().getReference("/messages").push()
+        val ref = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId").push()
+        val torRef = FirebaseDatabase.getInstance().getReference("/user-messages/$toId/$fromId").push()
         val chatMessage =
             ChatMessage(ref.key!!, msg, fromId, toId, System.currentTimeMillis() / 1000)
 
         ref.setValue(chatMessage)
             .addOnSuccessListener {
                 Log.d("Perform msg", "Saved our msg: ${ref.key}")
+                binding.etEnterMessage.text?.clear()
+                binding.rvChatMsg.scrollToPosition(adapter.itemCount -1)
             }
-    }
-
-    private fun setupDummeData() {
-        val adapter = GroupAdapter<GroupieViewHolder>()
-
-        adapter.add(ChatFromItem("From love"))
-        adapter.add(ChatToItem("With love \n to you"))
-        adapter.add(ChatFromItem("From love"))
-        adapter.add(ChatToItem("With love \n to you"))
-        adapter.add(ChatFromItem("From love"))
-        adapter.add(ChatToItem("With love \n to you"))
-
-        binding.rvChatMsg.adapter = adapter
+        torRef.setValue(chatMessage)
     }
 
 

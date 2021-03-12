@@ -17,14 +17,14 @@
         android:textAlignment="center"
         android:padding="8dp"
         android:text="@string/text_tech_support"
-        app:layout_constraintBottom_toBottomOf="@id/userImage"
+        app:layout_constraintBottom_toBottomOf="@id/userImageFrom"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@id/userImage"
+        app:layout_constraintStart_toEndOf="@id/userImageFrom"
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <ImageView
-        android:id="@+id/userImage"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/userImageFrom"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
