@@ -43,10 +43,10 @@ class NewMessagesFragment : Fragment(R.layout.fragment_new_messages) {
                 }
                 adapter.setOnItemClickListener { item, view ->
                     val userItem = item as UserItem
-                    val uid = userItem.users
+                    val user = userItem.users
                     val action =
                         NewMessagesFragmentDirections.actionNewMessagesFragmentToChatFragment(
-                           uid
+                           user
                         )
                     findNavController().navigate(action)
                 }

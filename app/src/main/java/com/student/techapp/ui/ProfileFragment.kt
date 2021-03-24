@@ -2,6 +2,7 @@ package com.student.techapp.ui
 
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.messaging.FirebaseMessaging
 import com.student.techapp.R
 import com.student.techapp.databinding.FragmentProfileBinding
 
@@ -25,6 +27,10 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentProfileBinding.bind(view)
+
+
+
+
 
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()

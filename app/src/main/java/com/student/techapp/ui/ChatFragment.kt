@@ -60,6 +60,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
                         adapter.add(ChatToItem(chatMessage.text, toUser!!))
                     }
                 }
+                binding.rvChatMsg.scrollToPosition(adapter.itemCount -1)
             }
 
             override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
@@ -82,21 +83,30 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
         val msg = binding.etEnterMessage.text.toString()
         val fromId = FirebaseAuth.getInstance().uid
         // mb tut error budet
-        val toId = toUser!!.uid
-        if (fromId == null) return
+        val toId = toUser?.uid
+
         //val ref = FirebaseDatabase.getInstance().getReference("/messages").push()
         val ref = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId").push()
         val torRef = FirebaseDatabase.getInstance().getReference("/user-messages/$toId/$fromId").push()
+        if (fromId == null) return
         val chatMessage =
-            ChatMessage(ref.key!!, msg, fromId, toId, System.currentTimeMillis() / 1000)
+            ChatMessage(ref.key!!, msg, fromId, toId!!, System.currentTimeMillis() / 1000)
 
         ref.setValue(chatMessage)
             .addOnSuccessListener {
                 Log.d("Perform msg", "Saved our msg: ${ref.key}")
                 binding.etEnterMessage.text?.clear()
-                binding.rvChatMsg.scrollToPosition(adapter.itemCount -1)
+                binding.rvChatMsg.scrollToPosition(adapter.itemCount - 1)
             }
         torRef.setValue(chatMessage)
+
+        val latestMsgRef =
+            FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId/$toId").push()
+        latestMsgRef.setValue(chatMessage)
+
+        val latestToMsgRef =
+            FirebaseDatabase.getInstance().getReference("/latest-messages/$toId/$fromId").push()
+        latestToMsgRef.setValue(chatMessage)
     }
 
 

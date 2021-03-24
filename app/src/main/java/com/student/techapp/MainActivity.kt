@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.bottomDrawer.setupWithNavController(navController)
+
         navController.addOnDestinationChangedListener { _, nd: NavDestination, _ ->
             if (nd.id == R.id.registerFragment || nd.id == R.id.loginFragment || nd.id == R.id.startFragment || nd.id == R.id.chatFragment) {
                 binding.bottomDrawer.visibility = View.GONE

@@ -42,10 +42,11 @@
             app:civ_border_width="3dp"
             app:layout_constraintBottom_toBottomOf="@id/selectPhoto"
             app:layout_constraintEnd_toEndOf="@id/selectPhoto"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/selectPhoto"
-            app:layout_constraintTop_toTopOf="@id/selectPhoto"
 
-            />
+            app:layout_constraintTop_toTopOf="@id/selectPhoto"
+            app:layout_constraintVertical_bias="0.0" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etName"
