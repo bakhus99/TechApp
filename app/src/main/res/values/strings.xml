@@ -31,4 +31,14 @@
     <string name="enter_login">Enter login</string>
     <string name="enter_your_password">Enter your password...</string>
     <string name="sign_out">Sign out</string>
+
+    <string-array name="services">
+
+        <item>Нету света</item>
+        <item>Нету воды</item>
+        <item>Чистка труб</item>
+        <item>Замена пломбы</item>
+        <item>Замена счетчика</item>
+
+    </string-array>
 </resources>

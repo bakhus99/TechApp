@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomDrawer.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, nd: NavDestination, _ ->
-            if (nd.id == R.id.registerFragment || nd.id == R.id.loginFragment || nd.id == R.id.startFragment || nd.id == R.id.chatFragment) {
+            if (nd.id == R.id.registerFragment || nd.id == R.id.loginFragment || nd.id == R.id.startFragment || nd.id == R.id.chatFragment || nd.id == R.id.pdfViewFragment) {
                 binding.bottomDrawer.visibility = View.GONE
             } else {
                 binding.bottomDrawer.visibility = View.VISIBLE

@@ -28,10 +28,6 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentProfileBinding.bind(view)
 
-
-
-
-
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
         databaseReference = database?.reference!!.child("profile")

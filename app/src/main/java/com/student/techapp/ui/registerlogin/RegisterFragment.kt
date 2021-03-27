@@ -85,7 +85,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         ) {
             when {
                 TextUtils.isEmpty(binding.etEmail.text.toString()) -> {
-                    binding.etEmail.error = "Enter email please"
+                    binding.etLayoutEmail.error = "Enter email please"
 
                 }
                 TextUtils.isEmpty(binding.etPassword.text.toString()) -> {
@@ -98,14 +98,6 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
-//                        val currentUser = auth.currentUser
-//                        //                       val currentUSerDb = databaseReference?.child((currentUser?.uid!!))
-////                        currentUSerDb?.child("name")?.setValue(name)
-////                        currentUSerDb?.child("lastname")?.setValue(surname)
-////                        currentUSerDb?.child("middlename")?.setValue(middlename)
-////                        currentUSerDb?.child("city")?.setValue(city)
-////                        currentUSerDb?.child("about")?.setValue(about)
-////                        currentUSerDb?.child("bday")?.setValue(birthdayDate)
                         Toast.makeText(context, "User reg success", Toast.LENGTH_SHORT).show()
                         uploadImageToFirebase()
                         val action =

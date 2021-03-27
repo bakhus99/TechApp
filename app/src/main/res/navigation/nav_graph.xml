@@ -97,4 +97,18 @@
             android:name="user"
             app:argType="com.student.techapp.models.Users" />
     </fragment>
+    <fragment
+        android:id="@+id/applicationFragment"
+        android:name="com.student.techapp.ui.ApplicationFragment"
+        android:label="fragment_application"
+        tools:layout="@layout/fragment_application" >
+        <action
+            android:id="@+id/action_applicationFragment_to_requestFragment"
+            app:destination="@id/requestFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestFragment"
+        android:name="com.student.techapp.ui.RequestFragment"
+        android:label="fragment_request"
+        tools:layout="@layout/fragment_request" />
 </navigation>
