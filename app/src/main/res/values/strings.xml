@@ -39,6 +39,7 @@
         <item>Чистка труб</item>
         <item>Замена пломбы</item>
         <item>Замена счетчика</item>
+        <item>Другое</item>
 
     </string-array>
 </resources>

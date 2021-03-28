@@ -23,4 +23,10 @@
 <!--            <item name="android:statusBarColor">@color/black</item>-->
 <!--        </style>-->
 
+    <style name="MyRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/custom_ratingbar</item>
+        <item name="minHeight">8dip</item>
+        <item name="maxHeight">8dip</item>
+    </style>
+
 </resources>
