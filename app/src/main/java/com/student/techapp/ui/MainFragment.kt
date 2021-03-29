@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.viewbinding.ViewBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -30,7 +31,6 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentMainBinding.bind(view)
-        binding.rvChatLatestMesages.adapter = adapter
         addNewMessage()
         fetchCurrentUser()
     }

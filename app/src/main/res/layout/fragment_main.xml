@@ -1,22 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.MainFragment">
 
+
+    <TextView
+        android:id="@+id/tvNews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="News"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/water_news"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/no_water"
+        app:layout_constraintBottom_toTopOf="@id/guideline12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNews" />
+
+    <TextView
+        android:id="@+id/tvHouses"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Houses that without water: Kamzina 164,163,171"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/tvTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/water_news"
+        app:layout_constraintTop_toBottomOf="@id/tvNews" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="From: 10:00 to 18:00"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@id/tvDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/water_news"
+        app:layout_constraintTop_toBottomOf="@id/tvHouses" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="Date: 21.02.2021"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/water_news"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/water_news"
+
+        app:layout_constraintTop_toBottomOf="@id/tvTime" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabNewMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="add new chat"
         android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <ImageView
+        android:id="@+id/light_news"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/no_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideline13"
+        app:layout_constraintTop_toBottomOf="@id/guideline12" />
+
+    <TextView
+        android:id="@+id/tvLightHouses"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Houses that without water: Kamzina 164,163,171"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/tvLightTime"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
-        android:contentDescription="add new chat" />
+        app:layout_constraintStart_toEndOf="@id/light_news"
+        app:layout_constraintTop_toBottomOf="@id/guideline12" />
+
+    <TextView
+        android:id="@+id/tvLightTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="From: 10:00 to 18:00"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@id/tvLightDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/light_news"
+        app:layout_constraintTop_toBottomOf="@id/tvLightHouses" />
+
+    <TextView
+        android:id="@+id/tvLightDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="Date: 21.02.2021"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/light_news"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/light_news"
+        app:layout_constraintTop_toBottomOf="@id/tvLightTime" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.42" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
