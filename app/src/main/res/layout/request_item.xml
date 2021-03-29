@@ -90,7 +90,10 @@
         android:numStars="5"
         android:rating="3.5"
         android:stepSize="0.5"
+        android:layout_marginBottom="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvProblem" />
+        app:layout_constraintTop_toBottomOf="@id/tvProblem"
+
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
