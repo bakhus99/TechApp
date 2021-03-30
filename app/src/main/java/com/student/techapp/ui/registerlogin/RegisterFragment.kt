@@ -135,13 +135,13 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     private fun saveUserToFirebase(profileImgUrl: String) {
         val name = binding.etName.text.toString()
         val surname = binding.etSurname.text.toString()
-        val middlename = binding.etMiddleName.text.toString()
+        val address = binding.etRegAddress.text.toString()
         val birthdayDate = binding.tvSelectedDate.text.toString()
         val city = binding.city.text.toString()
         val about = binding.aboutYourself.text.toString()
         val uid = FirebaseAuth.getInstance().uid ?: ""
         val ref = FirebaseDatabase.getInstance().getReference("/profile/$uid")
-        val user = Users(uid, profileImgUrl, name, surname, middlename, birthdayDate, city, about)
+        val user = Users(uid, profileImgUrl, name, surname, address, birthdayDate, city, about)
         ref.setValue(user)
             .addOnSuccessListener {
                 Log.d("REGISTERACTIVITY", "finally we saved user to firebase")

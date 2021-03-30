@@ -9,7 +9,7 @@ data class Users(
     val profileImage: String,
     val username: String,
     val usersurname: String,
-    val usermiddlename: String,
+    val address: String,
     val birthday: String,
     val city: String,
     val about: String

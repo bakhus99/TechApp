@@ -13,6 +13,7 @@ class UserItem(val users: Users):Item<GroupieViewHolder>() {
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.findViewById<TextView>(R.id.userName).text = users.username
+        viewHolder.itemView.findViewById<TextView>(R.id.userAddress).text = "(${users.address})"
         Glide.with(viewHolder.itemView.context).load(users.profileImage).into(viewHolder.itemView.findViewById(R.id.profileUserImage))
     }
 

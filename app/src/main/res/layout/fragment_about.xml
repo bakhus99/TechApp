@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.AboutFragment"
-    android:background="@android:color/holo_blue_dark">
+    android:background="#F8F3E6">
+
+<!--    android:background="@android:color/holo_blue_dark"-->
 
     <ImageView
         android:id="@+id/techImage"
@@ -56,11 +58,12 @@
 
         />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="+7 701 32 99 400"
+        android:drawableStart="@drawable/ic_support_agent_"
         android:backgroundTint="@android:color/holo_red_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

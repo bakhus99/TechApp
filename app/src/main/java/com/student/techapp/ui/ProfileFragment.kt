@@ -50,7 +50,7 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
             override fun onDataChange(snapshot: DataSnapshot) {
                 binding.tvName.text = snapshot.child("username").value.toString()
                 binding.tvSurname.text = snapshot.child("usersurname").value.toString()
-                binding.tvMiddleName.text = snapshot.child("usermiddlename").value.toString()
+                binding.tvMiddleName.text = snapshot.child("address").value.toString()
                 binding.tvCity.text = snapshot.child("city").value.toString()
                 binding.tvAboutMe.text = snapshot.child("about").value.toString()
                 binding.tvBirthday.text = snapshot.child("birthday").value.toString()

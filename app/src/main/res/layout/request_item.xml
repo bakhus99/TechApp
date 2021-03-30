@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/ubuntu_light"
         android:text="Name"
         android:textColor="@color/black"
@@ -24,6 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        android:textColor="#7a4704"
+        android:textSize="16sp"
         android:text="Address:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_name" />
@@ -33,6 +36,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Kamzina"
+        android:textSize="14sp"
+        android:textColor="@color/black"
         app:layout_constraintBaseline_toBaselineOf="@id/labelAddress"
         app:layout_constraintStart_toEndOf="@id/labelAddress" />
 
@@ -43,7 +48,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="Application:"
-
+        android:textStyle="bold"
+        android:textColor="#7a4704"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/labelAddress"
 
@@ -55,6 +62,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Clear "
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        app:layout_constraintBaseline_toBaselineOf="@id/labelApplication"
         app:layout_constraintStart_toEndOf="@id/labelApplication"
         app:layout_constraintTop_toBottomOf="@id/labelAddress" />
 
@@ -65,6 +75,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="Problem:"
+        android:textStyle="bold"
+        android:textColor="#7a4704"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/labelApplication" />
 
@@ -75,6 +87,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:text="Now working smth"
+        android:textSize="14sp"
+        android:textColor="@color/black"
         app:layout_constraintBaseline_toBaselineOf="@id/labelProblem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
@@ -93,7 +107,6 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvProblem"
-
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

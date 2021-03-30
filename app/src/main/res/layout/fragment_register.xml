@@ -89,20 +89,22 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/etLayoutMiddleName"
+            android:id="@+id/etLayoutRegAddress"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:backgroundTint="@color/black"
-            android:hint="@string/enter_your_middle_name"
+            android:hint="Enter your address"
             app:endIconMode="clear_text"
+            app:helperText="Required"
+            app:helperTextTextColor="@color/red"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etLayoutSurname">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etMiddleName"
+                android:id="@+id/etRegAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -132,7 +134,7 @@
             app:layout_constraintEnd_toEndOf="@id/content_end"
             app:layout_constraintHorizontal_bias="1"
             app:layout_constraintStart_toEndOf="@+id/tvPickupDate"
-            app:layout_constraintTop_toBottomOf="@id/etLayoutMiddleName" />
+            app:layout_constraintTop_toBottomOf="@id/etLayoutRegAddress" />
 
         <TextView
             android:id="@+id/tvSelectedDate"

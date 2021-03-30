@@ -21,10 +21,22 @@
         android:layout_height="wrap_content"
         android:text="Bakhus"
         android:textSize="22sp"
+        android:textColor="@color/black"
         android:layout_marginStart="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/profileUserImage"
         app:layout_constraintBottom_toBottomOf="@id/profileUserImage"
+        />
+
+    <TextView
+        android:id="@+id/userAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kamzina 132"
+        android:layout_marginStart="4dp"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/userName"
+        app:layout_constraintStart_toEndOf="@id/userName"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
