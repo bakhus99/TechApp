@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F3E6"
     tools:context=".ui.RequestFragment">
 
     <TextView
@@ -12,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Leave your application"
+        android:text="@string/leave_your_application"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -40,7 +39,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:hint="Enter your name"
+        android:hint="@string/enter_your_name"
+        app:hintTextColor="@color/btn_color"
+        app:boxStrokeColor="@color/btn_color"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="@id/content_end"
         app:layout_constraintStart_toStartOf="@id/content_start"
@@ -48,6 +49,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etName"
+            android:textCursorDrawable="@drawable/cursor_color"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -59,7 +61,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Enter your address"
+        android:hint="@string/enter_your_address"
+        app:hintTextColor="@color/btn_color"
+        app:boxStrokeColor="@color/btn_color"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="@id/content_end"
         app:layout_constraintStart_toStartOf="@id/content_start"
@@ -67,6 +71,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etAddress"
+            android:textCursorDrawable="@drawable/cursor_color"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -78,8 +83,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Enter your phone"
+        android:hint="@string/enter_your_phone"
         app:endIconMode="clear_text"
+        app:hintTextColor="@color/btn_color"
+        app:boxStrokeColor="@color/btn_color"
         app:counterEnabled="true"
         app:counterMaxLength="10"
         app:layout_constraintEnd_toEndOf="@id/content_end"
@@ -93,6 +100,7 @@
             android:id="@+id/etPhone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textCursorDrawable="@drawable/cursor_color"
             android:maxLength="10"
             android:inputType="phone" />
 
@@ -103,9 +111,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Choose Service "
+        android:text="@string/choose_service"
         android:textSize="16sp"
         android:textStyle="italic"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/layoutService"
         app:layout_constraintEnd_toStartOf="@id/layoutService"
         app:layout_constraintHorizontal_bias="0"
@@ -118,6 +127,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        app:hintTextColor="@color/btn_color"
+        app:boxStrokeColor="@color/btn_color"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@id/topBox"
         app:layout_constraintEnd_toEndOf="@id/content_end"
@@ -138,8 +149,10 @@
         android:id="@+id/etLayoutProblem"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
+        app:hintTextColor="@color/btn_color"
+        app:boxStrokeColor="@color/btn_color"
         android:layout_height="0dp"
-        android:hint="Describe your problem"
+        android:hint="@string/describe_your_problem"
         app:layout_constraintBottom_toTopOf="@id/bottomBox"
         app:layout_constraintEnd_toEndOf="@id/content_end"
         app:layout_constraintStart_toStartOf="@id/content_start"
@@ -149,6 +162,7 @@
             android:id="@+id/etProblem"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textCursorDrawable="@drawable/cursor_color"
             android:gravity="top" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -172,7 +186,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Send"
+        android:text="@string/send"
+        android:backgroundTint="#ffa45c"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/content_start"
         app:layout_constraintEnd_toEndOf="@id/content_end"

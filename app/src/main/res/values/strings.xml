@@ -7,7 +7,6 @@
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="i_read_terms_of_use">I read terms of use</string>
     <string name="register">Sign up</string>
-    <string name="enter_your_name">Enter your name</string>
     <string name="enter_your_surname">Enter your Surname</string>
     <string name="enter_your_middle_name">Enter your Middle name</string>
     <string name="please_choose_your_birthday_date">Please choose your birthday date</string>
@@ -32,6 +31,29 @@
     <string name="enter_your_password">Enter your password...</string>
     <string name="sign_out">Sign out</string>
     <string name="address">Address:</string>
+    <string name="enter_message">Enter message</string>
+    <string name="send">Send</string>
+    <string name="news">News</string>
+    <string name="houses_that_without_water_kamzina_164_163_171">Houses that without water: Kamzina 164,163,171</string>
+    <string name="date_21_02_2021">Date: 21.02.2021</string>
+    <string name="houses_that_without_light_lomovo_171_131_182">Houses that without light: Lomovo 171,131,182</string>
+    <string name="from_9_00_to_17_00">From: 9:00 to 17:00</string>
+    <string name="date_27_03_2021">Date: 27.03.2021</string>
+    <string name="pipe_flushing_kataeva_16_18">Pipe flushing: Kataeva 16,18</string>
+    <string name="from_12_00_to_16_00">From: 12:00 to 16:00</string>
+    <string name="date_11_04_2021">Date: 11.04.2021</string>
+    <string name="houses_that_without_water_gagarina_134_141_146">Houses that without water: Gagarina 134,141,146</string>
+    <string name="from_10_00_to_18_00">From: 10:00 to 18:00</string>
+    <string name="date_24_03_2021">Date: 24.03.2021</string>
+    <string name="enter_your_address">Enter your address</string>
+    <string name="leave_your_application">Leave your application</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="enter_your_phone">Enter your phone</string>
+    <string name="choose_service">Choose Service</string>
+    <string name="describe_your_problem">Describe your problem</string>
+    <string name="application">Application:</string>
+    <string name="problem">Problem:</string>
+    <string name="reqired">Required</string>
 
     <string-array name="services">
 

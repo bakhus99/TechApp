@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.ApplicationFragment"
-    android:background="#F8F3E6">
+    tools:context=".ui.ApplicationFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvApplications"
@@ -25,7 +24,7 @@
         android:layout_marginEnd="16dp"
         android:src="@drawable/ic_add"
         app:borderWidth="0dp"
-        android:backgroundTint="#949084"
+        android:backgroundTint="#ccc1b1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />

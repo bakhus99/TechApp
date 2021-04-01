@@ -4,22 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.AboutFragment"
-    android:background="#F8F3E6">
+    tools:context=".ui.AboutFragment">
 
-<!--    android:background="@android:color/holo_blue_dark"-->
 
     <ImageView
         android:id="@+id/techImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:contentDescription="@string/tech_header"
         android:scaleType="matrix"
+        android:src="@drawable/tech_support_header"
         app:layout_constraintBottom_toTopOf="@id/guideline8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/tech_support_header"
-        android:contentDescription="@string/tech_header" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"
@@ -31,13 +29,17 @@
     <TextView
         android:id="@+id/labelTechSup"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
-        android:text="@string/technical_support"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
-        app:layout_constraintEnd_toEndOf="parent"
         android:fontFamily="@font/ubuntu_light"
+        android:gravity="center"
+        android:text="@string/technical_support"
         android:textColor="@color/black"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+        app:layout_constraintBottom_toTopOf="@id/guideline12"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guideline8" />
 
@@ -48,13 +50,13 @@
         android:layout_margin="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:text="@string/text_tech_support"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:text="@string/text_tech_support"
         app:layout_constraintBottom_toTopOf="@id/guideline9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/labelTechSup"
+        app:layout_constraintTop_toBottomOf="@id/guideline12"
 
         />
 
@@ -62,20 +64,22 @@
         android:id="@+id/btnPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="+7 701 32 99 400"
-        android:drawableStart="@drawable/ic_support_agent_"
         android:backgroundTint="@android:color/holo_red_light"
+        android:text="+7 701 32 99 400"
+        app:icon="@drawable/ic_call"
+        app:layout_constraintBottom_toTopOf="@id/btnEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline9"
-         />
+        app:layout_constraintTop_toBottomOf="@id/guideline9" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="support@app.kz"
         android:backgroundTint="@android:color/holo_green_light"
+        android:text="support@app.kz"
+        app:icon="@drawable/ic_support_agent_"
+        app:layout_constraintBottom_toTopOf="@id/etLayoutMessage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnPhone" />
@@ -87,32 +91,48 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_end="329dp" />
 
-    <EditText
-        android:id="@+id/etMessage"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etLayoutMessage"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:hint="@string/enter_your_message"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnEmail"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         app:layout_constraintBottom_toTopOf="@id/btn_send"
-        android:background="@drawable/boreders"
-        android:gravity="top"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:layout_margin="8dp"
-        android:textColor="@color/black" />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:hintTextColor="@color/btn_color"
+        app:boxStrokeColor="@color/btn_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnEmail">
 
-    <Button
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMessage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:hint="@string/enter_your_message"
+            android:textColor="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/send_message"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@android:color/holo_orange_light"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/send_message"
+        app:icon="@drawable/ic_message"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="16dp"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etLayoutMessage" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="208dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

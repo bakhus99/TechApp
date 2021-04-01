@@ -18,4 +18,6 @@
     //Color for BottomNav Text
     <color name="bottom_nav_selected_text">#0099FF</color>
     <color name="bottom_nav_inactive_text">#C8635B</color>
+    <color name="btn_color">#ffa45c</color>
+    <color name="color_app">#fff4e3</color>
 </resources>

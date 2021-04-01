@@ -5,11 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
     tools:context=".ui.registerlogin.RegisterFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp">
 
         <TextView
             android:id="@+id/register"
@@ -55,7 +59,9 @@
             android:layout_margin="16dp"
             android:hint="@string/enter_your_name"
             app:endIconMode="clear_text"
-            app:helperText="Required"
+            app:hintTextColor="@color/btn_color"
+            app:boxStrokeColor="@color/btn_color"
+            app:helperText="@string/reqired"
             app:helperTextTextColor="@color/red"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,6 +69,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etName"
+                android:textCursorDrawable="@drawable/cursor_color"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -77,6 +84,8 @@
             android:backgroundTint="@color/black"
             android:hint="@string/enter_your_surname"
             app:endIconMode="clear_text"
+            app:hintTextColor="@color/btn_color"
+            app:boxStrokeColor="@color/btn_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etLayoutName">
@@ -84,6 +93,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etSurname"
                 android:layout_width="match_parent"
+                android:textCursorDrawable="@drawable/cursor_color"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -95,9 +105,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:backgroundTint="@color/black"
-            android:hint="Enter your address"
+            android:hint="@string/enter_your_address"
             app:endIconMode="clear_text"
-            app:helperText="Required"
+            app:helperText="@string/reqired"
+            app:hintTextColor="@color/btn_color"
+            app:boxStrokeColor="@color/btn_color"
             app:helperTextTextColor="@color/red"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -106,6 +118,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etRegAddress"
                 android:layout_width="match_parent"
+                android:textCursorDrawable="@drawable/cursor_color"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -119,6 +132,8 @@
             android:text="@string/please_choose_your_birthday_date"
             android:textSize="18sp"
             android:textAlignment="center"
+            app:hintTextColor="@color/btn_color"
+            app:boxStrokeColor="@color/btn_color"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/datePicker"
             app:layout_constraintEnd_toStartOf="@id/datePicker"
@@ -130,6 +145,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:backgroundTint="#ffa45c"
             android:text="@string/pick_a_date"
             app:layout_constraintEnd_toEndOf="@id/content_end"
             app:layout_constraintHorizontal_bias="1"
@@ -157,6 +173,8 @@
             android:layout_margin="16dp"
             android:backgroundTint="@color/black"
             android:hint="@string/enter_city_where_your_live"
+            app:hintTextColor="@color/btn_color"
+            app:boxStrokeColor="@color/btn_color"
             app:endIconMode="clear_text"
             app:layout_constraintBottom_toTopOf="@id/guideline3"
             app:layout_constraintEnd_toEndOf="parent"
@@ -165,6 +183,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/city"
+                android:textCursorDrawable="@drawable/cursor_color"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -183,6 +202,8 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="16dp"
+            app:hintTextColor="@color/btn_color"
+            app:boxStrokeColor="@color/btn_color"
             android:gravity="top"
             android:hint="@string/write_something_about_yourself"
             app:endIconMode="clear_text"
@@ -194,7 +215,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/aboutYourself"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:textCursorDrawable="@drawable/cursor_color"/>
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -210,6 +232,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:hintTextColor="@color/btn_color"
+            app:boxStrokeColor="@color/btn_color"
             android:hint="@string/enter_login"
             app:layout_constraintEnd_toEndOf="@id/content_end"
             app:layout_constraintStart_toStartOf="@id/content_start"
@@ -220,7 +244,8 @@
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textCursorDrawable="@drawable/cursor_color"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -230,6 +255,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            app:hintTextColor="@color/btn_color"
+            app:boxStrokeColor="@color/btn_color"
             android:hint="@string/enter_your_password"
             app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="@id/content_end"
@@ -241,7 +268,8 @@
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textCursorDrawable="@drawable/cursor_color"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -253,8 +281,8 @@
             android:gravity="center"
             android:minWidth="0dp"
             android:minHeight="0dp"
-            app:layout_constraintStart_toEndOf="@id/content_start"
             app:layout_constraintEnd_toStartOf="@id/tvLicense"
+            app:layout_constraintStart_toEndOf="@id/content_start"
             app:layout_constraintTop_toBottomOf="@+id/etLayoutPassword" />
 
         <TextView
@@ -273,11 +301,14 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:text="@string/register"
+           android:backgroundTint="#ffa45c"
            android:layout_marginTop="8dp"
            android:layout_marginEnd="16dp"
-           app:layout_constraintTop_toBottomOf="@id/etLayoutPassword"
+           android:layout_marginBottom="8dp"
+           app:layout_constraintTop_toBottomOf="@id/checkbox"
            app:layout_constraintEnd_toEndOf="@id/content_end"
-
+           app:layout_constraintStart_toStartOf="@id/content_start"
+           app:layout_constraintBottom_toBottomOf="parent"
            />
 
         <androidx.constraintlayout.widget.Guideline

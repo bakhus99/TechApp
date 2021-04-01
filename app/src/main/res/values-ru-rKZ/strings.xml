@@ -28,4 +28,28 @@
     <string name="enter_login">Введите логин</string>
     <string name="enter_your_password">Введите свой пароль...</string>
     <string name="sign_out">"Выйти "</string>
+    <string name="address">Адрес:</string>
+    <string name="enter_message">Введите сообщение</string>
+    <string name="send">Отправить</string>
+    <string name="news">Новости</string>
+    <string name="houses_that_without_water_kamzina_164_163_171">Дома без воды: Камзина 164, 163, 171</string>
+    <string name="from_10_00_to_18_00">С 10:00 до 18:00</string>
+    <string name="date_21_02_2021">Дата: 21.02.2021</string>
+    <string name="houses_that_without_light_lomovo_171_131_182">Дома без света: Ломово 171,131,182</string>
+    <string name="from_9_00_to_17_00">С 9:00 до 17:00</string>
+    <string name="date_27_03_2021">Дата: 27.03.2021</string>
+    <string name="pipe_flushing_kataeva_16_18">Промывка труб: Катаева 16,18</string>
+    <string name="from_12_00_to_16_00">С 12:00 до 16:00</string>
+    <string name="date_11_04_2021">Дата: 11.04.2021</string>
+    <string name="houses_that_without_water_gagarina_134_141_146">Дома без воды: Гагарина 134,141, 146</string>
+    <string name="date_24_03_2021">Дата: 24.03.2021</string>
+    <string name="enter_your_address">Введите ваш адрес</string>
+    <string name="leave_your_application">Оставьте заявку</string>
+    <string name="enter_your_phone">Введите свой телефон</string>
+    <string name="choose_service">Выберите услугу</string>
+    <string name="describe_your_problem">Опишите вашу проблему</string>
+    <string name="application">Заявка:</string>
+    <string name="problem">Проблема:</string>
+    <string name="reqired">Обязательно</string>
+
 </resources>

@@ -10,11 +10,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/ubuntu_light"
+        android:fontFamily="@font/bitter_bold"
         android:text="Name"
         android:textColor="@color/black"
         android:textSize="22sp"
-        android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,7 +26,7 @@
         android:textStyle="bold"
         android:textColor="#7a4704"
         android:textSize="16sp"
-        android:text="Address:"
+        android:text="@string/address"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_name" />
 
@@ -35,9 +34,11 @@
         android:id="@+id/tvAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:fontFamily="@font/lora"
         android:text="Kamzina"
+        android:textColor="#343431"
         android:textSize="14sp"
-        android:textColor="@color/black"
         app:layout_constraintBaseline_toBaselineOf="@id/labelAddress"
         app:layout_constraintStart_toEndOf="@id/labelAddress" />
 
@@ -47,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Application:"
+        android:text="@string/application"
         android:textStyle="bold"
         android:textColor="#7a4704"
         android:textSize="16sp"
@@ -64,6 +65,8 @@
         android:text="Clear "
         android:textSize="14sp"
         android:textColor="@color/black"
+        android:layout_marginStart="2dp"
+        android:fontFamily="@font/lora"
         app:layout_constraintBaseline_toBaselineOf="@id/labelApplication"
         app:layout_constraintStart_toEndOf="@id/labelApplication"
         app:layout_constraintTop_toBottomOf="@id/labelAddress" />
@@ -74,7 +77,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Problem:"
+        android:textSize="16sp"
+        android:text="@string/problem"
         android:textStyle="bold"
         android:textColor="#7a4704"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,7 +91,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:text="Now working smth"
+        android:fontFamily="@font/lora"
         android:textSize="14sp"
+        android:layout_marginStart="2dp"
         android:textColor="@color/black"
         app:layout_constraintBaseline_toBaselineOf="@id/labelProblem"
         app:layout_constraintEnd_toEndOf="parent"
