@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TechApp</string>
+    <string name="app_name">Application</string>
     <string name="text_tech_support">Добро пожаловать в наш проект. Вы можете позвонить нам по указанному ниже телефону, написать по почте или написать сообщение прямо из приложения.</string>
     <string name="i_read_terms_of_use">Я прочитал условия использования</string>
     <string name="register">Зарегистрироваться</string>
